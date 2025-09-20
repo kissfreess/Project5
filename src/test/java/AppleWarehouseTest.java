@@ -68,4 +68,17 @@ public class AppleWarehouseTest {
         appleWarehouse.findApplesByWeight("medium");
     }
 
+    @Test
+    public void findApples(){
+        List<Apple> greenApples = appleWarehouse.findApples(new GreenAppleSearchCriteria());
+        List<Apple> redApples = appleWarehouse.findApples(new RedAppleSearchCriteria());
+        List<Apple> heavyApples = appleWarehouse.findApples(new HeavyAppleSearchCriteria());
+        List<Apple> lightApples = appleWarehouse.findApples(new LightAppleSearchCriteria());
+
+        assertEquals(3, greenApples.size());
+        assertEquals(3, redApples.size());
+        assertEquals(4, heavyApples.size());
+        assertEquals(4, lightApples.size());
+    }
+
 }

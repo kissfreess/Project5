@@ -24,6 +24,10 @@ public class AppleWarehouse {
         return applesByWeighht;
     }
 
+    List<Apple> findApples(AppleSearchCriteria searchCriteria){
+        return apples.stream().filter(searchCriteria::test).toList();
+    }
+
     private List<Apple> getAllApples(){
         List<Apple> apples = new ArrayList<>();
         apples.add(new Apple("red", 100));
